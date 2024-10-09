@@ -1,5 +1,6 @@
 import { SafeAreaView, View } from "react-native";
-import { Button, useTheme } from "react-native-paper";
+import { useTheme } from "react-native-paper";
+import { IconButton } from "@/components/IconButton";
 
 export const Header = () => {
   const theme = useTheme();
@@ -15,8 +16,8 @@ export const Header = () => {
           paddingHorizontal: 10,
         }}
       >
-        <Button>Press me</Button>
-        <Button>Press me</Button>
+        <IconButton source={require("../assets/github/github-mark.png")} />
+        <IconButton source={require("../assets/github/github-mark.png")} />
       </View>
     </SafeAreaView>
   );
