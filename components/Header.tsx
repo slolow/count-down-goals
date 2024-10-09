@@ -1,14 +1,22 @@
 import { Linking, SafeAreaView, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { IconButton } from "@/components/IconButton";
+import { useState } from "react";
 
 export const Header = () => {
   const theme = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const iconLightOrDark = isDarkMode ? "weather-night" : "weather-sunny";
 
   const handleGithubPress = () => {
     Linking.openURL("https://github.com/slolow/count-down-goals").catch(
       (error) => console.error("Failed to open URL:", error),
     );
+  };
+
+  const handleColorModePress = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
@@ -27,6 +35,7 @@ export const Header = () => {
           source={require("../assets/github/github-mark.png")}
           onPress={handleGithubPress}
         />
+        <IconButton source={iconLightOrDark} onPress={handleColorModePress} />
       </View>
     </SafeAreaView>
   );
