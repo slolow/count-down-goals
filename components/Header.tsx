@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { Button, useTheme } from "react-native-paper";
 
 export const Header = () => {
