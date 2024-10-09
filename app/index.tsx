@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { Link } from 'expo-router';
 import {PrimaryText} from "@/components/PrimaryText";
 
-export default function Index() {
+const Index = () => {
   return (
       <View
         style={{
@@ -18,3 +18,5 @@ export default function Index() {
       </View>
   );
 }
+
+export default Index;
