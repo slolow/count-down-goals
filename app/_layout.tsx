@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import {
   MD3LightTheme as DefaultTheme,
   PaperProvider,
+  useTheme,
 } from "react-native-paper";
 import { Header } from "@/components/Header";
 
@@ -54,7 +55,12 @@ const theme = {
 const RootLayout = () => {
   return (
     <PaperProvider theme={theme}>
-      <Stack screenOptions={{ header: () => <Header /> }}>
+      <Stack
+        screenOptions={{
+          header: () => <Header />,
+          contentStyle: { backgroundColor: theme.colors.background },
+        }}
+      >
         <Stack.Screen name="index" options={{ title: "Overview" }} />
         <Stack.Screen name="SetGoal" options={{ title: "set your goal" }} />
         <Stack.Screen name="SetTime" options={{ title: "set your time" }} />
