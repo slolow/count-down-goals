@@ -1,13 +1,13 @@
-import {Text} from "react-native";
-import {useTheme} from "react-native-paper";
-import React, {ReactNode} from "react";
+import { Text } from "react-native";
+import { useTheme } from "react-native-paper";
+import React, { ReactNode } from "react";
 
 type PrimaryTextProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 export const PrimaryText = ({ children }: PrimaryTextProps) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
-  return <Text style={{ color: theme.colors.primary}}>{children}</Text>
-}
+  return <Text style={{ color: theme.colors.primary }}>{children}</Text>;
+};
