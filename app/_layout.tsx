@@ -53,7 +53,7 @@ const theme = {
 const RootLayout = () => {
   return (
     <PaperProvider theme={theme}>
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" options={{ title: "Overview" }} />
         <Stack.Screen name="SetGoal" options={{ title: "set your goal" }} />
         <Stack.Screen name="SetTime" options={{ title: "set your time" }} />
