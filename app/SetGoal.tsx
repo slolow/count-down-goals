@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 import {PrimaryText} from "@/components/PrimaryText";
+import {Link} from "expo-router";
 
 const SetGoal = () => {
   return (
@@ -8,7 +9,11 @@ const SetGoal = () => {
       justifyContent: "center",
       alignItems: "center",
     }}>
-      <PrimaryText>SetGoal</PrimaryText>
+      <Link href="/SetTime">
+        <PrimaryText>
+          Set Time
+        </PrimaryText>
+      </Link>
     </View>
   );
 }

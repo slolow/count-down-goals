@@ -11,9 +11,10 @@ const Index = () => {
           alignItems: "center",
         }}
       >
-        <PrimaryText>Edit app/index.tsx to edit this screen.</PrimaryText>
         <Link href="/SetGoal">
-          Go to About screen
+          <PrimaryText>
+            Set Goal
+          </PrimaryText>
         </Link>
       </View>
   );
