@@ -2,7 +2,7 @@ import { Linking, SafeAreaView, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { IconButton } from "@/components/IconButton";
 import { useContext } from "react";
-import { ColorSchemeContext } from "@/app/_layout";
+import { ColorSchemeContext } from "@/provider/ColorSchemeProvider";
 
 export const Header = () => {
   const theme = useTheme();

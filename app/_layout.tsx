@@ -6,7 +6,8 @@ import {
 } from "react-native-paper";
 import { Header } from "@/components/Header";
 import { useColorScheme } from "react-native";
-import { createContext, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { ColorSchemeProvider } from "@/provider/ColorSchemeProvider";
 
 const themes = {
   light: {
@@ -103,8 +104,6 @@ const themes = {
   },
 };
 
-export const ColorSchemeContext = createContext(null);
-
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
   const [isDarkTheme, setIsDarkTheme] = useState(systemColorScheme === "dark");
@@ -119,7 +118,7 @@ const RootLayout = () => {
 
   const theme = isDarkTheme ? themes.dark : themes.light;
   return (
-    <ColorSchemeContext.Provider value={colorSchemeContext}>
+    <ColorSchemeProvider value={colorSchemeContext}>
       <PaperProvider theme={theme}>
         <Stack
           screenOptions={{
@@ -133,7 +132,7 @@ const RootLayout = () => {
           <Stack.Screen name="Goal" options={{ title: "your goal" }} />
         </Stack>
       </PaperProvider>
-    </ColorSchemeContext.Provider>
+    </ColorSchemeProvider>
   );
 };
 
