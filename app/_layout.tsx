@@ -6,6 +6,7 @@ import {
 } from "react-native-paper";
 import { Header } from "@/components/Header";
 import { useColorScheme } from "react-native";
+import { createContext, useMemo, useState } from "react";
 
 const themes = {
   light: {
@@ -52,6 +53,7 @@ const themes = {
       onSurfaceDisabled: "rgba(32, 26, 24, 0.38)",
       backdrop: "rgba(59, 45, 41, 0.4)",
     },
+    dark: false,
   },
   dark: {
     ...DefaultDarkTheme,
@@ -97,26 +99,41 @@ const themes = {
       onSurfaceDisabled: "rgba(237, 224, 220, 0.38)",
       backdrop: "rgba(59, 45, 41, 0.4)",
     },
+    dark: true,
   },
 };
 
+export const ColorSchemeContext = createContext(null);
+
 const RootLayout = () => {
-  const colorScheme = useColorScheme();
-  const theme = colorScheme === "dark" ? themes.dark : themes.light;
+  const systemColorScheme = useColorScheme();
+  const [isDarkTheme, setIsDarkTheme] = useState(systemColorScheme === "dark");
+  const colorSchemeContext = useMemo(
+    () => ({
+      toggleTheme: () => {
+        setIsDarkTheme((isDarkTheme) => !isDarkTheme);
+      },
+    }),
+    [],
+  );
+
+  const theme = isDarkTheme ? themes.dark : themes.light;
   return (
-    <PaperProvider theme={theme}>
-      <Stack
-        screenOptions={{
-          header: () => <Header />,
-          contentStyle: { backgroundColor: theme.colors.background },
-        }}
-      >
-        <Stack.Screen name="index" options={{ title: "Overview" }} />
-        <Stack.Screen name="SetGoal" options={{ title: "set your goal" }} />
-        <Stack.Screen name="SetTime" options={{ title: "set your time" }} />
-        <Stack.Screen name="Goal" options={{ title: "your goal" }} />
-      </Stack>
-    </PaperProvider>
+    <ColorSchemeContext.Provider value={colorSchemeContext}>
+      <PaperProvider theme={theme}>
+        <Stack
+          screenOptions={{
+            header: () => <Header />,
+            contentStyle: { backgroundColor: theme.colors.background },
+          }}
+        >
+          <Stack.Screen name="index" options={{ title: "Overview" }} />
+          <Stack.Screen name="SetGoal" options={{ title: "set your goal" }} />
+          <Stack.Screen name="SetTime" options={{ title: "set your time" }} />
+          <Stack.Screen name="Goal" options={{ title: "your goal" }} />
+        </Stack>
+      </PaperProvider>
+    </ColorSchemeContext.Provider>
   );
 };
 
