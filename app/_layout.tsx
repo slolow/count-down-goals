@@ -2,7 +2,6 @@ import { Stack } from "expo-router";
 import {
   MD3LightTheme as DefaultTheme,
   PaperProvider,
-  useTheme,
 } from "react-native-paper";
 import { Header } from "@/components/Header";
 
