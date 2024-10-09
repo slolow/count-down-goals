@@ -47,7 +47,7 @@ const theme = {
   }
 }
 
-export default function RootLayout() {
+const RootLayout = () => {
   return (
     <PaperProvider theme={theme} >
       <Stack>
@@ -59,3 +59,5 @@ export default function RootLayout() {
     </PaperProvider>
   );
 }
+
+export default RootLayout;
