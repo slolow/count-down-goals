@@ -13,6 +13,7 @@ type TwoButtonsGroupProps = {
   textLeftButton: string;
   textRightButton: string;
   lastInput?: boolean;
+  rightButtonDisabled: boolean;
 };
 
 export const TwoButtonsGroup = ({
@@ -21,6 +22,7 @@ export const TwoButtonsGroup = ({
   textLeftButton,
   textRightButton,
   lastInput = false,
+  rightButtonDisabled,
 }: TwoButtonsGroupProps) => {
   const theme = useTheme();
 
@@ -51,6 +53,7 @@ export const TwoButtonsGroup = ({
             : theme.colors.secondary,
         }}
         text={textRightButton}
+        disabled={rightButtonDisabled}
       />
     </View>
   );
