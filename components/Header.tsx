@@ -26,7 +26,7 @@ export const Header = () => {
           justifyContent: "space-between",
           backgroundColor: theme.colors.background,
           height: 60,
-          paddingHorizontal: 10,
+          paddingLeft: 10,
         }}
       >
         <IconButton
