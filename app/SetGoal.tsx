@@ -1,8 +1,9 @@
 import { Link } from "expo-router";
 import { Container } from "@/components/Container";
-import { Button, TextInput, useTheme } from "react-native-paper";
+import { Button, useTheme } from "react-native-paper";
 import { useState } from "react";
 import { Dimensions, View } from "react-native";
+import { TextInput } from "@/components/TextInput";
 
 const SetGoal = () => {
   const theme = useTheme();
@@ -18,13 +19,7 @@ const SetGoal = () => {
         <TextInput
           label={"goal"}
           value={text}
-          mode={"outlined"}
-          autoFocus={true}
           onChangeText={(text) => setText(text)}
-          textColor={theme.colors.primary}
-          style={{
-            fontSize: theme.fonts.titleLarge.fontSize,
-          }}
         />
       </Container>
       <View
