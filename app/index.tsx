@@ -5,18 +5,15 @@ import { View } from "react-native";
 import { Container } from "@/components/Container";
 import { Link } from "expo-router";
 import { SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS } from "@/assets/constants/ConstantStyles";
-
-const goals = [
-  { id: 0, content: "live sugar free", days: 30 },
-  { id: 1, content: "play guitar for 10 minutes every day", days: 90 },
-  {
-    id: 2,
-    content: "think about a moment in your day that you are grateful for",
-    days: 10,
-  },
-];
+import { useContext } from "react";
+import { GoalsContext } from "@/providers/GoalProvider";
+import { type Goals } from "@/app/_layout";
 
 const Goals = () => {
+  // @ts-ignore
+  const { getGoals } = useContext(GoalsContext);
+  const goals: Goals = getGoals();
+
   return goals.map((goal) => (
     <Card key={goal.id} style={{ marginVertical: 10 }}>
       <Card.Content>
