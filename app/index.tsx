@@ -4,6 +4,7 @@ import { IconButton } from "@/components/IconButton";
 import { View } from "react-native";
 import { Container } from "@/components/Container";
 import { Link } from "expo-router";
+import { SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS } from "@/assets/constants/ConstantStyles";
 
 const goals = [
   { id: 0, content: "live sugar free", days: 30 },
@@ -29,7 +30,13 @@ const Index = () => {
   return (
     <Container>
       <Goals />
-      <View style={{ position: "absolute", bottom: 50, right: 0 }}>
+      <View
+        style={{
+          position: "absolute",
+          bottom: SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
+          right: 0,
+        }}
+      >
         <Link href={"/SetGoal"}>
           <IconButton source={"plus-circle-outline"} sizeMultiplier={3} />
         </Link>

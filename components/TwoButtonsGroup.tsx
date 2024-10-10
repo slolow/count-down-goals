@@ -1,8 +1,11 @@
-import { Href, Link } from "expo-router";
-import { Button, useTheme } from "react-native-paper";
-import { Dimensions, View } from "react-native";
-
-const MARGIN_BETWEEN_BUTTONS = 20;
+import { Href } from "expo-router";
+import { useTheme } from "react-native-paper";
+import { View } from "react-native";
+import {
+  MARGIN_BETWEEN_BUTTONS,
+  SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
+} from "@/assets/constants/ConstantStyles";
+import { LinkButton } from "@/components/LinkButton";
 
 type TwoButtonsGroupProps = {
   linkForLeftButton: Href<string | object>;
@@ -18,56 +21,33 @@ export const TwoButtonsGroup = ({
   textRightButton,
 }: TwoButtonsGroupProps) => {
   const theme = useTheme();
-  const windowWidth = Dimensions.get("window").width;
-
-  const buttonWidth = windowWidth / 2 - MARGIN_BETWEEN_BUTTONS - 5;
 
   return (
     <View
       style={{
         flexDirection: "row",
         justifyContent: "center",
-        marginBottom: 50,
+        marginBottom: SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
       }}
     >
-      <Link href={linkForLeftButton}>
-        <Button
-          mode={"outlined"}
-          style={{
-            marginRight: MARGIN_BETWEEN_BUTTONS,
-            width: buttonWidth,
-            height: 50,
-            borderColor: theme.colors.secondary,
-          }}
-          theme={{ roundness: 10 }}
-          labelStyle={{
-            fontSize: theme.fonts.titleLarge.fontSize,
-            color: theme.colors.secondary,
-            padding: 8,
-          }}
-          uppercase={true}
-        >
-          {textLeftButton}
-        </Button>
-      </Link>
-      <Link href={linkForRightButton}>
-        <Button
-          mode={"contained"}
-          style={{
-            width: buttonWidth,
-            height: 50,
-            backgroundColor: theme.colors.secondary,
-          }}
-          theme={{ roundness: 10 }}
-          labelStyle={{
-            fontSize: theme.fonts.titleLarge.fontSize,
-            padding: 8,
-          }}
-          uppercase={true}
-        >
-          {textRightButton}
-        </Button>
-      </Link>
+      <LinkButton
+        link={linkForLeftButton}
+        mode={"outlined"}
+        style={{
+          marginRight: MARGIN_BETWEEN_BUTTONS,
+          borderColor: theme.colors.secondary,
+        }}
+        labelStyle={{ color: theme.colors.secondary }}
+        text={textLeftButton}
+      />
+      <LinkButton
+        link={linkForRightButton}
+        mode={"contained"}
+        style={{
+          backgroundColor: theme.colors.secondary,
+        }}
+        text={textRightButton}
+      />
     </View>
   );
 };
