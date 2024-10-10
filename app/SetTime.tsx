@@ -20,6 +20,7 @@ const SetTime = () => {
         linkForRightButton={"/"}
         textLeftButton={"back"}
         textRightButton={"start"}
+        lastInput={true}
       />
     </>
   );
