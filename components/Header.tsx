@@ -2,7 +2,7 @@ import { Linking, SafeAreaView, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { IconButton } from "@/components/IconButton";
 import { useContext } from "react";
-import { ColorSchemeContext } from "@/provider/ColorSchemeProvider";
+import { ColorSchemeContext } from "@/providers/ColorSchemeProvider";
 
 export const Header = () => {
   const theme = useTheme();
@@ -30,7 +30,7 @@ export const Header = () => {
         }}
       >
         <IconButton
-          source={require("../assets/github/github-mark.png")}
+          source={require("@/assets/images/github-mark.png")}
           onPress={handleGithubPress}
         />
         <IconButton source={iconLightOrDark} onPress={toggleTheme} />

@@ -7,7 +7,7 @@ import {
 import { Header } from "@/components/Header";
 import { useColorScheme } from "react-native";
 import { useMemo, useState } from "react";
-import { ColorSchemeProvider } from "@/provider/ColorSchemeProvider";
+import { ColorSchemeProvider } from "@/providers/ColorSchemeProvider";
 
 const themes = {
   light: {
