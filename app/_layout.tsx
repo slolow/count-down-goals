@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { PaperProvider } from "react-native-paper";
+import { PaperProvider, ActivityIndicator } from "react-native-paper";
 import { Header } from "@/components/Header";
 import { useColorScheme } from "react-native";
 import { useMemo, useState } from "react";
@@ -7,6 +7,7 @@ import { ColorSchemeProvider } from "@/providers/ColorSchemeProvider";
 import { darkTheme } from "@/assets/themes/darkTheme";
 import { lightTheme } from "@/assets/themes/lightTheme";
 import { useFonts } from "expo-font";
+import { Container } from "@/components/Container";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
@@ -23,14 +24,18 @@ const RootLayout = () => {
     Anton: require("../assets/fonts/Anton-Regular.ttf"),
   });
 
+  const theme = isDarkTheme ? darkTheme : lightTheme;
+
   if (!loaded && !error) {
-    return null;
+    return (
+      <Container style={{ backgroundColor: theme.colors.background }}>
+        <ActivityIndicator animating={true} color={theme.colors.primary} />
+      </Container>
+    );
   }
   if (error) {
     console.error(error);
   }
-
-  const theme = isDarkTheme ? darkTheme : lightTheme;
 
   return (
     <ColorSchemeProvider value={colorSchemeContext}>
