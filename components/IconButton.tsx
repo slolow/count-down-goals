@@ -3,7 +3,7 @@ import { ImageSourcePropType } from "react-native";
 
 type IconButtonProps = {
   source: ImageSourcePropType | string | undefined;
-  onPress: () => void;
+  onPress?: () => void;
   sizeMultiplier?: number;
 };
 
