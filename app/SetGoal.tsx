@@ -10,20 +10,22 @@ const SetGoal = () => {
 
   return (
     <>
-      <Container mode={"centered"}>
+      <Container>
         <TextInput
           label={"goal"}
           value={text}
           onChangeText={(text) => setText(text)}
         />
       </Container>
-      <TwoButtonsGroup
-        linkForLeftButton={"/"}
-        linkForRightButton={"/SetDays"}
-        textLeftButton={"cancel"}
-        textRightButton={"next"}
-        rightButtonDisabled={isNextButtonDisabled}
-      />
+      <Container>
+        <TwoButtonsGroup
+          linkForLeftButton={"/"}
+          linkForRightButton={"/SetDays"}
+          textLeftButton={"cancel"}
+          textRightButton={"next"}
+          rightButtonDisabled={isNextButtonDisabled}
+        />
+      </Container>
     </>
   );
 };

@@ -28,7 +28,7 @@ const Goals = () => {
 
 const Index = () => {
   return (
-    <Container>
+    <Container mode={"overview"}>
       <Goals />
       <View
         style={{

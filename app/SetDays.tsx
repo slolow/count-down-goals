@@ -10,7 +10,7 @@ const SetDays = () => {
 
   return (
     <>
-      <Container mode={"centered"}>
+      <Container>
         <TextInput
           label={"days"}
           value={days}
@@ -18,14 +18,16 @@ const SetDays = () => {
           inputMode={"numeric"}
         />
       </Container>
-      <TwoButtonsGroup
-        linkForLeftButton={"/SetGoal"}
-        linkForRightButton={"/"}
-        textLeftButton={"back"}
-        textRightButton={"start"}
-        lastInput={true}
-        rightButtonDisabled={isStartButtonDisabled}
-      />
+      <Container>
+        <TwoButtonsGroup
+          linkForLeftButton={"/SetGoal"}
+          linkForRightButton={"/"}
+          textLeftButton={"back"}
+          textRightButton={"start"}
+          lastInput={true}
+          rightButtonDisabled={isStartButtonDisabled}
+        />
+      </Container>
     </>
   );
 };

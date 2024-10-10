@@ -1,10 +1,7 @@
 import { Href } from "expo-router";
 import { useTheme } from "react-native-paper";
 import { View } from "react-native";
-import {
-  MARGIN_BETWEEN_BUTTONS,
-  SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
-} from "@/assets/constants/ConstantStyles";
+import { MARGIN_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
 import { LinkButton } from "@/components/LinkButton";
 
 type TwoButtonsGroupProps = {
@@ -30,8 +27,6 @@ export const TwoButtonsGroup = ({
     <View
       style={{
         flexDirection: "row",
-        justifyContent: "center",
-        marginBottom: SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
       }}
     >
       <LinkButton
