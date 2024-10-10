@@ -1,14 +1,13 @@
-import { Link } from "expo-router";
+import { Card } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
-import { Container } from "@/components/Container";
 
 const Index = () => {
   return (
-    <Container>
-      <Link href="/SetGoal">
-        <PrimaryText>Set Goal</PrimaryText>
-      </Link>
-    </Container>
+    <Card style={{ margin: 10 }}>
+      <Card.Content>
+        <PrimaryText>Card title</PrimaryText>
+      </Card.Content>
+    </Card>
   );
 };
 
