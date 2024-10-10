@@ -12,6 +12,7 @@ export const PrimaryText = ({ children }: PrimaryTextProps) => {
   return (
     <Text
       style={{
+        fontFamily: "Anton",
         color: theme.colors.primary,
       }}
       variant={"titleLarge"}
