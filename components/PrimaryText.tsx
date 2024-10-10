@@ -9,5 +9,9 @@ type PrimaryTextProps = {
 export const PrimaryText = ({ children }: PrimaryTextProps) => {
   const theme = useTheme();
 
-  return <Text style={{ color: theme.colors.primary }}>{children}</Text>;
+  return (
+    <Text style={{ color: theme.colors.primary, fontSize: 25 }}>
+      {children}
+    </Text>
+  );
 };
