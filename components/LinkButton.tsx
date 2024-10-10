@@ -9,6 +9,7 @@ type LinkButtonProps = {
   style?: object;
   labelStyle?: object;
   text: string;
+  disabled?: boolean;
 };
 
 export const LinkButton = ({
@@ -17,13 +18,14 @@ export const LinkButton = ({
   style,
   labelStyle,
   text,
+  disabled = false,
 }: LinkButtonProps) => {
   const theme = useTheme();
   const windowWidth = Dimensions.get("window").width;
   const buttonWidth = windowWidth / 2 - MARGIN_BETWEEN_BUTTONS - 5;
 
   return (
-    <Link href={link}>
+    <Link href={link} disabled={disabled}>
       <Button
         mode={mode}
         style={{
@@ -38,6 +40,7 @@ export const LinkButton = ({
           padding: 8,
         }}
         uppercase={true}
+        disabled={disabled}
       >
         {text}
       </Button>
