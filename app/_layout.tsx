@@ -46,10 +46,10 @@ const RootLayout = () => {
             contentStyle: { backgroundColor: theme.colors.background },
           }}
         >
-          <Stack.Screen name="index" options={{ title: "Overview" }} />
-          <Stack.Screen name="SetGoal" options={{ title: "set your goal" }} />
-          <Stack.Screen name="SetDays" options={{ title: "set your Days" }} />
-          <Stack.Screen name="Goal" options={{ title: "your goal" }} />
+          <Stack.Screen name="index" />
+          <Stack.Screen name="SetGoal" />
+          <Stack.Screen name="SetDays" />
+          <Stack.Screen name="Goal" />
         </Stack>
       </PaperProvider>
     </ColorSchemeProvider>
