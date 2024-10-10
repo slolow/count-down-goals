@@ -2,6 +2,7 @@ import { Card } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
 import { View } from "react-native";
+import { Container } from "@/components/Container";
 
 const goals = [
   { id: 0, content: "live sugar free", days: 30 },
@@ -15,7 +16,7 @@ const goals = [
 
 const Goals = () => {
   return goals.map((goal) => (
-    <Card key={goal.id} style={{ margin: 10 }}>
+    <Card key={goal.id} style={{ marginVertical: 10 }}>
       <Card.Content>
         <PrimaryText>{goal.content}</PrimaryText>
       </Card.Content>
@@ -25,16 +26,16 @@ const Goals = () => {
 
 const Index = () => {
   return (
-    <>
+    <Container>
       <Goals />
-      <View style={{ position: "absolute", bottom: 30, right: 0, margin: 10 }}>
+      <View style={{ position: "absolute", bottom: 50, right: 0 }}>
         <IconButton
           source={"plus-circle-outline"}
           onPress={() => console.log("y")}
-          sizeMultiplier={4}
+          sizeMultiplier={3}
         />
       </View>
-    </>
+    </Container>
   );
 };
 
