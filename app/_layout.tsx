@@ -10,7 +10,7 @@ import { lightTheme } from "@/assets/themes/lightTheme";
 import { useFonts } from "expo-font";
 import { Container } from "@/components/Container";
 import { v4 as uuidv4 } from "uuid";
-import { GoalsProvider } from "@/providers/GoalProvider";
+import { GoalsProvider } from "@/providers/GoalsProvider";
 
 type Goal = {
   id: string;

@@ -6,7 +6,7 @@ import { Container } from "@/components/Container";
 import { Link } from "expo-router";
 import { SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS } from "@/assets/constants/ConstantStyles";
 import { useContext } from "react";
-import { GoalsContext } from "@/providers/GoalProvider";
+import { GoalsContext } from "@/providers/GoalsProvider";
 import { type Goals } from "@/app/_layout";
 
 const Goals = () => {
