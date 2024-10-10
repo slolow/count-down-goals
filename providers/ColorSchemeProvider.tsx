@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import React, { createContext } from "react";
 
-export type ColorSchemeProviderProps = {
+type ColorSchemeProviderProps = {
   children: ReactNode;
   value: { toggleTheme: () => void };
 };
