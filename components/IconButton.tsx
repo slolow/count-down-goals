@@ -21,7 +21,7 @@ export const IconButton = ({
           size={sizeMultiplier * size}
           source={source}
           color={theme.colors.secondary}
-        ></Icon>
+        />
       )}
       onPress={onPress}
     >
