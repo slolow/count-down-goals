@@ -19,5 +19,6 @@ export const Container = ({
     marginHorizontal: 20,
   };
 
+  // @ts-ignore
   return <View style={styles}>{children}</View>;
 };
