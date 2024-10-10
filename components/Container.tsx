@@ -12,8 +12,7 @@ export const Container = ({ children, style }: ContainerProps) => {
       style={{
         ...style,
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        marginHorizontal: 10,
       }}
     >
       {children}
