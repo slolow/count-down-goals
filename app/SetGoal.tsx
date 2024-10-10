@@ -6,6 +6,8 @@ import { TwoButtonsGroup } from "@/components/TwoButtonsGroup";
 const SetGoal = () => {
   const [text, setText] = useState("");
 
+  const isNextButtonDisabled = text.length < 3;
+
   return (
     <>
       <Container mode={"centered"}>
@@ -20,6 +22,7 @@ const SetGoal = () => {
         linkForRightButton={"/SetTime"}
         textLeftButton={"cancel"}
         textRightButton={"next"}
+        rightButtonDisabled={isNextButtonDisabled}
       />
     </>
   );
