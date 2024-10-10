@@ -48,7 +48,7 @@ const RootLayout = () => {
         >
           <Stack.Screen name="index" options={{ title: "Overview" }} />
           <Stack.Screen name="SetGoal" options={{ title: "set your goal" }} />
-          <Stack.Screen name="SetTime" options={{ title: "set your time" }} />
+          <Stack.Screen name="SetDays" options={{ title: "set your Days" }} />
           <Stack.Screen name="Goal" options={{ title: "your goal" }} />
         </Stack>
       </PaperProvider>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TextInput } from "@/components/TextInput";
 import { TwoButtonsGroup } from "@/components/TwoButtonsGroup";
 
-const SetTime = () => {
+const SetDays = () => {
   const [days, setDays] = useState("");
 
   const isStartButtonDisabled = days === "";
@@ -30,4 +30,4 @@ const SetTime = () => {
   );
 };
 
-export default SetTime;
+export default SetDays;

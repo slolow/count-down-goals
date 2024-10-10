@@ -19,7 +19,7 @@ const SetGoal = () => {
       </Container>
       <TwoButtonsGroup
         linkForLeftButton={"/"}
-        linkForRightButton={"/SetTime"}
+        linkForRightButton={"/SetDays"}
         textLeftButton={"cancel"}
         textRightButton={"next"}
         rightButtonDisabled={isNextButtonDisabled}
