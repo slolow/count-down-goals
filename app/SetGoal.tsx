@@ -21,6 +21,10 @@ const SetGoal = () => {
           mode={"outlined"}
           autoFocus={true}
           onChangeText={(text) => setText(text)}
+          textColor={theme.colors.primary}
+          style={{
+            fontSize: theme.fonts.titleLarge.fontSize,
+          }}
         />
       </Container>
       <View
