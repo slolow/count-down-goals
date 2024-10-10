@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { ColorSchemeProvider } from "@/providers/ColorSchemeProvider";
 import { darkTheme } from "@/assets/themes/darkTheme";
 import { lightTheme } from "@/assets/themes/lightTheme";
+import { useFonts } from "expo-font";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
@@ -18,8 +19,19 @@ const RootLayout = () => {
     }),
     [],
   );
+  const [loaded, error] = useFonts({
+    Anton: require("../assets/fonts/Anton-Regular.ttf"),
+  });
+
+  if (!loaded && !error) {
+    return null;
+  }
+  if (error) {
+    console.error(error);
+  }
 
   const theme = isDarkTheme ? darkTheme : lightTheme;
+
   return (
     <ColorSchemeProvider value={colorSchemeContext}>
       <PaperProvider theme={theme}>
