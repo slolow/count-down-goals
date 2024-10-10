@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text } from "react-native-paper";
 import { useTheme } from "react-native-paper";
 import React, { ReactNode } from "react";
 
@@ -10,7 +10,12 @@ export const PrimaryText = ({ children }: PrimaryTextProps) => {
   const theme = useTheme();
 
   return (
-    <Text style={{ color: theme.colors.primary, fontSize: 25 }}>
+    <Text
+      style={{
+        color: theme.colors.primary,
+      }}
+      variant={"titleLarge"}
+    >
       {children}
     </Text>
   );
