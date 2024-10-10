@@ -3,6 +3,7 @@ import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
 import { View } from "react-native";
 import { Container } from "@/components/Container";
+import { Link } from "expo-router";
 
 const goals = [
   { id: 0, content: "live sugar free", days: 30 },
@@ -29,11 +30,9 @@ const Index = () => {
     <Container>
       <Goals />
       <View style={{ position: "absolute", bottom: 50, right: 0 }}>
-        <IconButton
-          source={"plus-circle-outline"}
-          onPress={() => console.log("y")}
-          sizeMultiplier={3}
-        />
+        <Link href={"/SetGoal"}>
+          <IconButton source={"plus-circle-outline"} sizeMultiplier={3} />
+        </Link>
       </View>
     </Container>
   );
