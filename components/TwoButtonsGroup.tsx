@@ -12,6 +12,7 @@ type TwoButtonsGroupProps = {
   linkForRightButton: Href<string | object>;
   textLeftButton: string;
   textRightButton: string;
+  lastInput?: boolean;
 };
 
 export const TwoButtonsGroup = ({
@@ -19,6 +20,7 @@ export const TwoButtonsGroup = ({
   linkForRightButton,
   textLeftButton,
   textRightButton,
+  lastInput = false,
 }: TwoButtonsGroupProps) => {
   const theme = useTheme();
 
@@ -44,7 +46,9 @@ export const TwoButtonsGroup = ({
         link={linkForRightButton}
         mode={"contained"}
         style={{
-          backgroundColor: theme.colors.secondary,
+          backgroundColor: lastInput
+            ? theme.colors.tertiary
+            : theme.colors.secondary,
         }}
         text={textRightButton}
       />
