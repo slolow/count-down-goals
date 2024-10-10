@@ -4,15 +4,18 @@ import { TextInput } from "@/components/TextInput";
 import { TwoButtonsGroup } from "@/components/TwoButtonsGroup";
 
 const SetTime = () => {
-  const [text, setText] = useState("");
+  const [days, setDays] = useState("");
+
+  const isStartButtonDisabled = days === "";
 
   return (
     <>
       <Container mode={"centered"}>
         <TextInput
-          label={"time"}
-          value={text}
-          onChangeText={(text) => setText(text)}
+          label={"days"}
+          value={days}
+          onChangeText={(days) => setDays(days)}
+          inputMode={"numeric"}
         />
       </Container>
       <TwoButtonsGroup
@@ -21,6 +24,7 @@ const SetTime = () => {
         textLeftButton={"back"}
         textRightButton={"start"}
         lastInput={true}
+        rightButtonDisabled={isStartButtonDisabled}
       />
     </>
   );
