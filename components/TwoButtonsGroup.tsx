@@ -11,6 +11,7 @@ type TwoButtonsGroupProps = {
   textRightButton: string;
   lastInput?: boolean;
   rightButtonDisabled: boolean;
+  onPressNext: () => void;
 };
 
 export const TwoButtonsGroup = ({
@@ -20,6 +21,7 @@ export const TwoButtonsGroup = ({
   textRightButton,
   lastInput = false,
   rightButtonDisabled,
+  onPressNext,
 }: TwoButtonsGroupProps) => {
   const theme = useTheme();
 
@@ -49,6 +51,7 @@ export const TwoButtonsGroup = ({
         }}
         text={textRightButton}
         disabled={rightButtonDisabled}
+        onPress={onPressNext}
       />
     </View>
   );
