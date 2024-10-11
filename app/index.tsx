@@ -9,16 +9,24 @@ import { useContext } from "react";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import { type Goals } from "@/data/goals";
 
-const Goals = () => {
+const GoalsList = () => {
   // @ts-ignore
   const { getGoals } = useContext(GoalsContext);
   const goals: Goals = getGoals();
 
   return goals.map((goal) => (
-    <Card key={goal.id} style={{ marginVertical: 10 }}>
+    <Card
+      key={goal.id}
+      style={{
+        marginVertical: 10,
+      }}
+    >
       <Card.Content>
         <PrimaryText>{goal.content}</PrimaryText>
       </Card.Content>
+      <Card.Actions>
+        <IconButton source={"delete"} />
+      </Card.Actions>
     </Card>
   ));
 };
@@ -26,7 +34,7 @@ const Goals = () => {
 const Index = () => {
   return (
     <Container mode={"overview"}>
-      <Goals />
+      <GoalsList />
       <View
         style={{
           position: "absolute",
