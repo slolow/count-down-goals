@@ -9,14 +9,21 @@ const SetDays = () => {
   const [days, setDays] = useState("");
   const isStartButtonDisabled = days === "";
   // @ts-ignore
-  const { getGoals, updateGoals } = useContext(GoalsContext);
-  const goals = getGoals();
+  const { goals, setGoals } = useContext(GoalsContext);
 
   const onPressStart = () => {
-    const pendingGoal = goals.find((goal: Goal) => goal.status === "pending");
-    pendingGoal.days = days;
-    pendingGoal.status = "created";
-    updateGoals(goals);
+    const updatedGoals = goals.map((goal: Goal) => {
+      if (goal.status === "pending") {
+        return {
+          ...goal,
+          days,
+          status: "created",
+        };
+      } else {
+        return goal;
+      }
+    });
+    setGoals(updatedGoals);
   };
 
   return (
