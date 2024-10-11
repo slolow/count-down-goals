@@ -21,12 +21,10 @@ const GoalsList = () => {
         marginVertical: 10,
       }}
     >
-      <Card.Content>
-        <PrimaryText>{goal.content}</PrimaryText>
-      </Card.Content>
-      <Card.Actions>
-        <IconButton source={"delete"} />
-      </Card.Actions>
+      <Card.Title
+        title={<PrimaryText>{goal.content}</PrimaryText>}
+        right={() => <IconButton source={"delete"} />}
+      />
     </Card>
   ));
 };
