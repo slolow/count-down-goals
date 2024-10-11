@@ -8,7 +8,7 @@ import { Goal } from "@/data/goals";
 
 const SetGoal = () => {
   const [text, setText] = useState("");
-  const isNextButtonDisabled = text.length < 3;
+  const isNextButtonDisabled = text.trimEnd().length < 3;
   // @ts-ignore
   const { goals, setGoals } = useContext(GoalsContext);
 
@@ -28,7 +28,7 @@ const SetGoal = () => {
         <TextInput
           label={"goal"}
           value={text}
-          onChangeText={(text) => setText(text)}
+          onChangeText={(text) => setText(text.trimStart())}
         />
       </Container>
       <Container>
