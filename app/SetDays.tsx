@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { TextInput } from "@/components/TextInput";
 import { TwoButtonsGroup } from "@/components/TwoButtonsGroup";
 import { GoalsContext } from "@/providers/GoalsProvider";
+import { type Goal } from "@/data/goals";
 
 const SetDays = () => {
   const [days, setDays] = useState("");
@@ -11,7 +12,12 @@ const SetDays = () => {
   const { getGoals, updateGoals } = useContext(GoalsContext);
   const goals = getGoals();
 
-  const onPressStart = () => {};
+  const onPressStart = () => {
+    const pendingGoal = goals.find((goal: Goal) => goal.status === "pending");
+    pendingGoal.days = days;
+    pendingGoal.status = "created";
+    updateGoals(goals);
+  };
 
   return (
     <>
