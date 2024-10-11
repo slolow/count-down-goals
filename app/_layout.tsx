@@ -11,14 +11,7 @@ import { useFonts } from "expo-font";
 import { Container } from "@/components/Container";
 import { v4 as uuidv4 } from "uuid";
 import { GoalsProvider } from "@/providers/GoalsProvider";
-
-type Goal = {
-  id: string;
-  content: string;
-  days: number;
-};
-
-export type Goals = Goal[];
+import { Goals } from "@/data/goals";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
