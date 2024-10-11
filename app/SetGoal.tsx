@@ -15,7 +15,7 @@ const SetGoal = () => {
   const handlePressNext = () => {
     const goal: Goal = {
       id: uuidv4(),
-      content: text,
+      content: text.trimEnd(),
       days: 0,
       status: "pending",
     };
