@@ -10,6 +10,7 @@ type LinkButtonProps = {
   labelStyle?: object;
   text: string;
   disabled?: boolean;
+  onPress?: () => void;
 };
 
 export const LinkButton = ({
@@ -19,13 +20,14 @@ export const LinkButton = ({
   labelStyle,
   text,
   disabled = false,
+  onPress,
 }: LinkButtonProps) => {
   const theme = useTheme();
   const windowWidth = Dimensions.get("window").width;
   const buttonWidth = windowWidth / 2 - MARGIN_BETWEEN_BUTTONS - 5;
 
   return (
-    <Link href={link} disabled={disabled}>
+    <Link href={link} disabled={disabled} onPress={onPress}>
       <Button
         mode={mode}
         style={{
