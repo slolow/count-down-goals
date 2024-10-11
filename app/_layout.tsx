@@ -46,6 +46,7 @@ const RootLayout = () => {
       </Container>
     );
   }
+
   if (error) {
     console.error(error);
   }
