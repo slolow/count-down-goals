@@ -1,14 +1,17 @@
-import { createContext, ReactNode } from "react";
+import React, { createContext, ReactNode } from "react";
 import { type Goals } from "@/data/goals";
 
 type GoalsProviderProps = {
   children: ReactNode;
-  value: { getGoals: () => Goals; updateGoals: (goals: Goals) => void };
+  value: {
+    goals: Goals;
+    setGoals: React.Dispatch<React.SetStateAction<Goals>>;
+  };
 };
 
 export const GoalsContext = createContext<{
-  getGoals: () => Goals;
-  updateGoals: (goals: Goals) => void;
+  goals: Goals;
+  setGoals: React.Dispatch<React.SetStateAction<Goals>>;
 } | null>(null);
 
 export const GoalsProvider = ({ children, value }: GoalsProviderProps) => (

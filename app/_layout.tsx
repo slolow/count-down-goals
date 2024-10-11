@@ -26,13 +26,6 @@ const RootLayout = () => {
     }),
     [],
   );
-  const goalContext = useMemo(
-    () => ({
-      getGoals: () => goals,
-      updateGoals: (goals: Goals) => setGoals(goals),
-    }),
-    [],
-  );
   const [loaded, error] = useFonts({
     Anton: require("../assets/fonts/Anton-Regular.ttf"),
   });
@@ -53,7 +46,7 @@ const RootLayout = () => {
 
   return (
     <ColorSchemeProvider value={colorSchemeContext}>
-      <GoalsProvider value={goalContext}>
+      <GoalsProvider value={{ goals, setGoals }}>
         <PaperProvider theme={theme}>
           <Stack
             screenOptions={{
