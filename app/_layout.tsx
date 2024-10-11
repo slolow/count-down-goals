@@ -11,7 +11,7 @@ import { useFonts } from "expo-font";
 import { Container } from "@/components/Container";
 import { v4 as uuidv4 } from "uuid";
 import { GoalsProvider } from "@/providers/GoalsProvider";
-import { Goals } from "@/data/goals";
+import { type Goals } from "@/data/goals";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
@@ -19,8 +19,13 @@ const RootLayout = () => {
     systemColorScheme === "dark",
   );
   const [goals, setGoals] = useState<Goals>([
-    { id: uuidv4(), content: "live sugar free", days: 30 },
-    { id: uuidv4(), content: "play guitar for 10 minutes every day", days: 90 },
+    { id: uuidv4(), content: "live sugar free", days: 30, status: "created" },
+    {
+      id: uuidv4(),
+      content: "play guitar for 10 minutes every day",
+      days: 90,
+      status: "created",
+    },
   ]);
   const colorSchemeContext = useMemo(
     () => ({
@@ -33,6 +38,7 @@ const RootLayout = () => {
   const goalContext = useMemo(
     () => ({
       getGoals: () => goals,
+      updateGoals: (goals: Goals) => setGoals(goals),
     }),
     [],
   );
