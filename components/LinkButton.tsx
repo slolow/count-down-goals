@@ -1,13 +1,19 @@
 import { Href, Link } from "expo-router";
 import { Button, useTheme } from "react-native-paper";
-import { Dimensions } from "react-native";
+import {
+  Animated,
+  Dimensions,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from "react-native";
 import { MARGIN_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
 
 type LinkButtonProps = {
   link: Href<string | object>;
   mode: "text" | "outlined" | "contained" | "elevated" | "contained-tonal";
-  style?: object;
-  labelStyle?: object;
+  style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
+  labelStyle?: StyleProp<TextStyle>;
   text: string;
   disabled?: boolean;
   onPress?: () => void;
@@ -31,13 +37,13 @@ export const LinkButton = ({
       <Button
         mode={mode}
         style={{
-          ...style,
+          ...(style as object),
           width: buttonWidth,
           height: 50,
         }}
         theme={{ roundness: 10 }}
         labelStyle={{
-          ...labelStyle,
+          ...(labelStyle as object),
           fontSize: theme.fonts.titleLarge.fontSize,
           padding: 8,
         }}
