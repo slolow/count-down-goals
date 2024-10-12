@@ -5,6 +5,7 @@ import { TwoButtonsGroup } from "@/components/TwoButtonsGroup";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import { v4 as uuidv4 } from "uuid";
 import { Goal } from "@/data/goals";
+import { getTodaysTimeStamp } from "@/dates/dates";
 
 const SetGoal = () => {
   const [text, setText] = useState("");
@@ -18,6 +19,7 @@ const SetGoal = () => {
       days: 0,
       status: "pending",
       selected: false,
+      createdAt: getTodaysTimeStamp(),
     };
     setGoals([...goals, goal]);
   };
