@@ -1,16 +1,19 @@
-import { Link, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import { PrimaryText } from "@/components/PrimaryText";
 import { Container } from "@/components/Container";
+import { LinkButton } from "@/components/LinkButton";
+import { View } from "react-native";
+import { MARGIN_VERTICAL } from "@/assets/constants/ConstantStyles";
 
 const NotFoundScreen = () => {
   return (
     <>
-      <Stack.Screen options={{ title: "Oops! Not Found" }} />
-      <Container>
-        <PrimaryText>Oops! Not Found</PrimaryText>
-        <Link href="/">
-          <PrimaryText>Go back to Home screen!</PrimaryText>
-        </Link>
+      <Stack.Screen />
+      <Container mode={"centered"}>
+        <View style={{ marginBottom: MARGIN_VERTICAL }}>
+          <PrimaryText>Oops! Not Found</PrimaryText>
+        </View>
+        <LinkButton link={"/"} mode={"contained"} text={"Home"} />
       </Container>
     </>
   );
