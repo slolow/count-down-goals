@@ -17,6 +17,7 @@ const SetGoal = () => {
       content: text.trimEnd(),
       days: 0,
       status: "pending",
+      selected: false,
     };
     setGoals([...goals, goal]);
   };

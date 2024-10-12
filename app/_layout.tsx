@@ -57,7 +57,7 @@ const RootLayout = () => {
             <Stack.Screen name="index" />
             <Stack.Screen name="SetGoal" />
             <Stack.Screen name="SetDays" />
-            <Stack.Screen name="Goal" />
+            <Stack.Screen name="GoalDetail" />
           </Stack>
         </PaperProvider>
       </GoalsProvider>

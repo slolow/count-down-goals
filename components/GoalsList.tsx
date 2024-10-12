@@ -14,6 +14,20 @@ import {
 export const GoalsList = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
 
+  const handleGoalPress = (goalToShow: Goal) => {
+    const updatedGoals = goals.map((goal: Goal) => {
+      if (goal.id === goalToShow.id) {
+        return {
+          ...goal,
+          selected: true,
+        };
+      } else {
+        return goal;
+      }
+    });
+    setGoals(updatedGoals);
+  };
+
   const handleDeletePress = (goal: Goal) => {
     Alert.alert(
       "Are you sure?",
@@ -42,7 +56,11 @@ export const GoalsList = () => {
   };
 
   return goals.map((goal: Goal) => (
-    <Link href={"/Goal"} key={goal.id}>
+    <Link
+      href={"/GoalDetail"}
+      key={goal.id}
+      onPress={() => handleGoalPress(goal)}
+    >
       <Card
         style={{
           marginVertical: MARGIN_VERTICAL,
