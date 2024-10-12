@@ -46,7 +46,12 @@ const RootLayout = () => {
 
   return (
     <ColorSchemeProvider value={colorSchemeContext}>
-      <GoalsProvider value={{ goals, setGoals }}>
+      <GoalsProvider
+        value={{
+          goals,
+          setGoals,
+        }}
+      >
         <PaperProvider theme={theme}>
           <Stack
             screenOptions={{
