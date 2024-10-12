@@ -24,6 +24,13 @@ const SetGoal = () => {
     setGoals([...goals, goal]);
   };
 
+  const handlePressCancel = () => {
+    const updatedGoals = goals.filter(
+      (goal: Goal) => goal.status !== "pending",
+    );
+    setGoals(updatedGoals);
+  };
+
   return (
     <>
       <Container>
@@ -41,6 +48,7 @@ const SetGoal = () => {
           textRightButton={"next"}
           rightButtonDisabled={isNextButtonDisabled}
           onPressNext={handlePressNext}
+          onPressBack={handlePressCancel}
         />
       </Container>
     </>

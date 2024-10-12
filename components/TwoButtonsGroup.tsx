@@ -12,6 +12,7 @@ type TwoButtonsGroupProps = {
   lastInput?: boolean;
   rightButtonDisabled: boolean;
   onPressNext: () => void;
+  onPressBack?: () => void;
 };
 
 export const TwoButtonsGroup = ({
@@ -22,6 +23,7 @@ export const TwoButtonsGroup = ({
   lastInput = false,
   rightButtonDisabled,
   onPressNext,
+  onPressBack,
 }: TwoButtonsGroupProps) => {
   const theme = useTheme();
 
@@ -40,6 +42,7 @@ export const TwoButtonsGroup = ({
         }}
         labelStyle={{ color: theme.colors.secondary }}
         text={textLeftButton}
+        onPress={onPressBack}
       />
       <LinkButton
         link={linkForRightButton}
