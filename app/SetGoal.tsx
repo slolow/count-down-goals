@@ -9,8 +9,7 @@ import { Goal } from "@/data/goals";
 const SetGoal = () => {
   const [text, setText] = useState("");
   const isNextButtonDisabled = text.trimEnd().length < 3;
-  // @ts-ignore
-  const { goals, setGoals } = useContext(GoalsContext);
+  const { goals, setGoals } = useContext(GoalsContext)!;
 
   const handlePressNext = () => {
     const goal: Goal = {

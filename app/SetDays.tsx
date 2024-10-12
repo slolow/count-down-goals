@@ -8,17 +8,16 @@ import { type Goal } from "@/data/goals";
 const SetDays = () => {
   const [days, setDays] = useState("");
   const isStartButtonDisabled = days === "";
-  // @ts-ignore
-  const { goals, setGoals } = useContext(GoalsContext);
+  const { goals, setGoals } = useContext(GoalsContext)!;
 
   const onPressStart = () => {
     const updatedGoals = goals.map((goal: Goal) => {
       if (goal.status === "pending") {
         return {
           ...goal,
-          days,
+          days: Number(days),
           status: "created",
-        };
+        } as Goal;
       } else {
         return goal;
       }

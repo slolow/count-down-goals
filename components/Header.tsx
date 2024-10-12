@@ -6,8 +6,7 @@ import { ColorSchemeContext } from "@/providers/ColorSchemeProvider";
 
 export const Header = () => {
   const theme = useTheme();
-  // @ts-ignore
-  const { toggleTheme } = useContext(ColorSchemeContext);
+  const { toggleTheme } = useContext(ColorSchemeContext)!;
 
   const iconLightOrDark = theme.dark ? "weather-night" : "weather-sunny";
 

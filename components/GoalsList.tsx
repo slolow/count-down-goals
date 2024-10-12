@@ -7,8 +7,7 @@ import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
 
 export const GoalsList = () => {
-  // @ts-ignore
-  const { goals, setGoals } = useContext(GoalsContext);
+  const { goals, setGoals } = useContext(GoalsContext)!;
 
   const handleDeletePress = (goal: Goal) => {
     Alert.alert(

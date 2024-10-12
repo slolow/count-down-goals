@@ -1,9 +1,11 @@
 import { View } from "react-native";
 import { ReactNode } from "react";
+import { StyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+import { ViewStyle } from "react-native/Libraries/StyleSheet/StyleSheetTypes";
 
 type ContainerProps = {
   children: ReactNode;
-  style?: Object;
+  style?: StyleProp<ViewStyle>;
   mode?: "input" | "overview";
 };
 
@@ -13,12 +15,11 @@ export const Container = ({
   mode = "input",
 }: ContainerProps) => {
   const styles = {
-    ...style,
-    flex: mode === "overview" ? 1 : null,
+    ...(style as object),
+    flex: mode === "overview" ? 1 : undefined,
     marginVertical: mode === "overview" ? 0 : 80,
     marginHorizontal: 20,
   };
 
-  // @ts-ignore
   return <View style={styles}>{children}</View>;
 };
