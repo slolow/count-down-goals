@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { MARGIN_HORIZONTAL_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL_BETWEEN_BUTTONS } from "@/constants/ConstantStyles";
 
 type LinkButtonProps = {
   link: Href<string | object>;

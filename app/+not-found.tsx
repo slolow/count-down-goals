@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { PrimaryText } from "@/components/PrimaryText";
 import { Container } from "@/components/Container";
 import { LinkButton } from "@/components/LinkButton";
-import { MARGIN_VERTICAL } from "@/assets/constants/ConstantStyles";
+import { MARGIN_VERTICAL } from "@/constants/ConstantStyles";
 
 const NotFoundScreen = () => {
   return (

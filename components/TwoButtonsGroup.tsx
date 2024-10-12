@@ -1,7 +1,7 @@
 import { Href } from "expo-router";
 import { useTheme } from "react-native-paper";
 import { View } from "react-native";
-import { MARGIN_HORIZONTAL_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL_BETWEEN_BUTTONS } from "@/constants/ConstantStyles";
 import { LinkButton } from "@/components/LinkButton";
 
 type TwoButtonsGroupProps = {

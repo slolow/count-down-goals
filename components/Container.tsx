@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { ReactNode } from "react";
 import { StyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 import { ViewStyle } from "react-native/Libraries/StyleSheet/StyleSheetTypes";
-import { MARGIN_HORIZONTAL } from "@/assets/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL } from "@/constants/ConstantStyles";
 
 type ContainerProps = {
   children: ReactNode;

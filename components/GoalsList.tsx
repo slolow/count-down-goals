@@ -6,10 +6,7 @@ import { Card } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
 import { Link } from "expo-router";
-import {
-  MARGIN_HORIZONTAL,
-  MARGIN_VERTICAL,
-} from "@/assets/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL, MARGIN_VERTICAL } from "@/constants/ConstantStyles";
 
 export const GoalsList = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
