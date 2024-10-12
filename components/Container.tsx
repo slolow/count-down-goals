@@ -2,6 +2,7 @@ import { View } from "react-native";
 import { ReactNode } from "react";
 import { StyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 import { ViewStyle } from "react-native/Libraries/StyleSheet/StyleSheetTypes";
+import { MARGIN_HORIZONTAL } from "@/assets/constants/ConstantStyles";
 
 type ContainerProps = {
   children: ReactNode;
@@ -18,7 +19,7 @@ export const Container = ({
     ...(style as object),
     flex: mode === "overview" ? 1 : undefined,
     marginVertical: mode === "overview" ? 0 : 80,
-    marginHorizontal: 20,
+    marginHorizontal: MARGIN_HORIZONTAL,
   };
 
   return <View style={styles}>{children}</View>;

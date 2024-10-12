@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import type { Goal } from "@/data/goals";
-import { Alert } from "react-native";
+import { Alert, Dimensions } from "react-native";
 import { Card } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
+import { Link } from "expo-router";
+import { MARGIN_HORIZONTAL } from "@/assets/constants/ConstantStyles";
 
 export const GoalsList = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
@@ -37,21 +39,23 @@ export const GoalsList = () => {
   };
 
   return goals.map((goal: Goal) => (
-    <Card
-      key={goal.id}
-      style={{
-        marginVertical: 10,
-      }}
-    >
-      <Card.Title
-        title={<PrimaryText>{goal.content}</PrimaryText>}
-        right={() => (
-          <IconButton
-            source={"delete"}
-            onPress={() => handleDeletePress(goal)}
-          />
-        )}
-      />
-    </Card>
+    <Link href={"/Goal"} key={goal.id}>
+      <Card
+        style={{
+          marginVertical: 10,
+          width: Dimensions.get("window").width - 2 * MARGIN_HORIZONTAL,
+        }}
+      >
+        <Card.Title
+          title={<PrimaryText>{goal.content}</PrimaryText>}
+          right={() => (
+            <IconButton
+              source={"delete"}
+              onPress={() => handleDeletePress(goal)}
+            />
+          )}
+        />
+      </Card>
+    </Link>
   ));
 };
