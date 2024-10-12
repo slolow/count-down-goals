@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import { type Goal } from "@/data/goals";
 import { LinkButton } from "@/components/LinkButton";
-import { MARGIN_VERTICAL } from "@/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL, MARGIN_VERTICAL } from "@/constants/ConstantStyles";
 import { View } from "react-native";
 
 const GoalDetail = () => {
@@ -28,7 +28,12 @@ const GoalDetail = () => {
 
   return (
     <View
-      style={{ flex: 1, alignItems: "center", justifyContent: "space-around" }}
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "space-around",
+        paddingHorizontal: MARGIN_HORIZONTAL,
+      }}
     >
       <PrimaryText variant={"displaySmall"}>{goal.content}</PrimaryText>
       <PrimaryText style={{ marginBottom: MARGIN_VERTICAL }}>
