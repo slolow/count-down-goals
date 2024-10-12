@@ -6,7 +6,10 @@ import { Card } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
 import { Link } from "expo-router";
-import { MARGIN_HORIZONTAL } from "@/assets/constants/ConstantStyles";
+import {
+  MARGIN_HORIZONTAL,
+  MARGIN_VERTICAL,
+} from "@/assets/constants/ConstantStyles";
 
 export const GoalsList = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
@@ -42,7 +45,7 @@ export const GoalsList = () => {
     <Link href={"/Goal"} key={goal.id}>
       <Card
         style={{
-          marginVertical: 10,
+          marginVertical: MARGIN_VERTICAL,
           width: Dimensions.get("window").width - 2 * MARGIN_HORIZONTAL,
         }}
       >
