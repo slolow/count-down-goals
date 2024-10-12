@@ -23,7 +23,7 @@ const SetGoal = () => {
       remainingDays: 0,
       reached: false,
     };
-    setGoals([...goals, goal]);
+    setGoals([goal, ...goals]);
   };
 
   const handlePressCancel = () => {
