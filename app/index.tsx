@@ -11,9 +11,11 @@ const Index = () => {
       <GoalsList />
       <View
         style={{
-          position: "absolute",
-          bottom: VERTICAL_SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
-          right: 0,
+          height: 100,
+          justifyContent: "center",
+          alignItems: "flex-end",
+          paddingBottom: VERTICAL_SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
+          right: -20,
         }}
       >
         <Link href={"/SetGoal"}>

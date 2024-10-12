@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import type { Goal } from "@/data/goals";
-import { Alert, Dimensions } from "react-native";
+import { Alert, Dimensions, ScrollView } from "react-native";
 import { Card, useTheme } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
@@ -127,9 +127,12 @@ export const GoalsList = () => {
   };
 
   return (
-    <>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       <UnreachedGoalsList />
       <ReachedGoalsList />
-    </>
+    </ScrollView>
   );
 };
