@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import { type Goal } from "@/data/goals";
 import { LinkButton } from "@/components/LinkButton";
-import { View } from "react-native";
 import { MARGIN_VERTICAL } from "@/assets/constants/ConstantStyles";
 
 const GoalDetail = () => {
@@ -27,9 +26,9 @@ const GoalDetail = () => {
 
   return (
     <Container mode={"centered"}>
-      <View style={{ marginBottom: MARGIN_VERTICAL }}>
-        <PrimaryText>{goal?.content}</PrimaryText>
-      </View>
+      <PrimaryText style={{ marginBottom: MARGIN_VERTICAL }}>
+        {goal?.content}
+      </PrimaryText>
       <LinkButton
         link="/"
         mode={"contained"}
