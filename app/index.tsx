@@ -2,7 +2,7 @@ import { IconButton } from "@/components/IconButton";
 import { View } from "react-native";
 import { Container } from "@/components/Container";
 import { Link } from "expo-router";
-import { SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS } from "@/assets/constants/ConstantStyles";
+import { VERTICAL_SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS } from "@/assets/constants/ConstantStyles";
 import { GoalsList } from "@/components/GoalsList";
 
 const Index = () => {
@@ -12,7 +12,7 @@ const Index = () => {
       <View
         style={{
           position: "absolute",
-          bottom: SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
+          bottom: VERTICAL_SPACE_BETWEEN_SCREEN_BOTTOM_AND_LOWER_BUTTONS,
           right: 0,
         }}
       >

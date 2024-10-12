@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { MARGIN_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
 
 type LinkButtonProps = {
   link: Href<string | object>;
@@ -30,7 +30,7 @@ export const LinkButton = ({
 }: LinkButtonProps) => {
   const theme = useTheme();
   const windowWidth = Dimensions.get("window").width;
-  const buttonWidth = windowWidth / 2 - MARGIN_BETWEEN_BUTTONS - 5;
+  const buttonWidth = windowWidth / 2 - MARGIN_HORIZONTAL_BETWEEN_BUTTONS - 5;
 
   return (
     <Link href={link} disabled={disabled} onPress={onPress}>

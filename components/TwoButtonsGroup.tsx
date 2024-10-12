@@ -1,7 +1,7 @@
 import { Href } from "expo-router";
 import { useTheme } from "react-native-paper";
 import { View } from "react-native";
-import { MARGIN_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
+import { MARGIN_HORIZONTAL_BETWEEN_BUTTONS } from "@/assets/constants/ConstantStyles";
 import { LinkButton } from "@/components/LinkButton";
 
 type TwoButtonsGroupProps = {
@@ -35,7 +35,7 @@ export const TwoButtonsGroup = ({
         link={linkForLeftButton}
         mode={"outlined"}
         style={{
-          marginRight: MARGIN_BETWEEN_BUTTONS,
+          marginRight: MARGIN_HORIZONTAL_BETWEEN_BUTTONS,
           borderColor: theme.colors.secondary,
         }}
         labelStyle={{ color: theme.colors.secondary }}
