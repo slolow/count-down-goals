@@ -14,7 +14,7 @@ export const calculateRemainingDays = (goal: Goal): number => {
   const today = getTodaysTimeStamp();
 
   const differenceInMs = today - goal.createdAt;
-  const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
+  const differenceInDays = Math.round(differenceInMs / (1000 * 60 * 60 * 24));
 
   return goal.days - differenceInDays;
 };
