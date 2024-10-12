@@ -20,6 +20,8 @@ const SetGoal = () => {
       status: "pending",
       selected: false,
       createdAt: getTodaysTimeStamp(),
+      remainingDays: 0,
+      reached: false,
     };
     setGoals([...goals, goal]);
   };

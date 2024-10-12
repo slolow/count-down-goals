@@ -7,6 +7,7 @@ import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
 import { Link } from "expo-router";
 import { MARGIN_HORIZONTAL, MARGIN_VERTICAL } from "@/constants/ConstantStyles";
+import { calculateRemainingDays } from "@/dates/dates";
 
 export const GoalsList = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
@@ -14,9 +15,13 @@ export const GoalsList = () => {
   const handleGoalPress = (goalToShow: Goal) => {
     const updatedGoals = goals.map((goal: Goal) => {
       if (goal.id === goalToShow.id) {
+        const remainingDays = calculateRemainingDays(goal);
+        const reached = remainingDays <= 0;
         return {
           ...goal,
           selected: true,
+          remainingDays,
+          reached,
         };
       } else {
         return goal;

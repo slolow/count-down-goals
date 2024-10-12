@@ -5,20 +5,10 @@ import { GoalsContext } from "@/providers/GoalsProvider";
 import { type Goal } from "@/data/goals";
 import { LinkButton } from "@/components/LinkButton";
 import { MARGIN_VERTICAL } from "@/constants/ConstantStyles";
-import { getTodaysTimeStamp } from "@/dates/dates";
 
 const GoalDetail = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
   const goal = goals.find((goal: Goal) => goal.selected)!;
-
-  const calculateRemainingDays = (): number => {
-    const today = getTodaysTimeStamp();
-
-    const differenceInMs = today - goal.createdAt;
-    const differenceInDays = Math.round(differenceInMs / (1000 * 60 * 60 * 24));
-
-    return goal.days - differenceInDays;
-  };
 
   const handleBackPress = () => {
     const updatedGoals = goals.map((goal: Goal) => {
@@ -40,7 +30,9 @@ const GoalDetail = () => {
         {goal.content}
       </PrimaryText>
       <PrimaryText style={{ marginBottom: MARGIN_VERTICAL }}>
-        {`${calculateRemainingDays()} days left`}
+        {goal.reached
+          ? `🎉 You reached your goal of ${goal.days} days! 🎉`
+          : `${goal.remainingDays} days left`}
       </PrimaryText>
       <LinkButton
         link="/"

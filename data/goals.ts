@@ -5,6 +5,8 @@ export type Goal = {
   status: "pending" | "created";
   selected: boolean;
   createdAt: number;
+  remainingDays: number;
+  reached: boolean;
 };
 
 export type Goals = Goal[];

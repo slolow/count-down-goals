@@ -16,6 +16,7 @@ const SetDays = () => {
         return {
           ...goal,
           days: Number(days),
+          remainingDays: Number(days),
           status: "created",
         } as Goal;
       } else {
