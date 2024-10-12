@@ -5,12 +5,14 @@ type IconButtonProps = {
   source: ImageSourcePropType | string | undefined;
   onPress?: () => void;
   sizeMultiplier?: number;
+  iconColor?: string;
 };
 
 export const IconButton = ({
   source,
   onPress,
   sizeMultiplier = 2,
+  iconColor,
 }: IconButtonProps) => {
   const theme = useTheme();
 
@@ -20,7 +22,7 @@ export const IconButton = ({
         <Icon
           size={sizeMultiplier * size}
           source={source}
-          color={theme.colors.secondary}
+          color={iconColor || theme.colors.secondary}
         />
       )}
       onPress={onPress}
