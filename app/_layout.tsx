@@ -38,8 +38,17 @@ const RootLayout = () => {
         setGoals(JSON.parse(storedGoals));
       }
     };
+    const loadIsDarkTheme = async () => {
+      const storedIsDarkTheme = await AsyncStorage.getItem("isDarkTheme");
+      if (storedIsDarkTheme !== null) {
+        setIsDarkTheme(JSON.parse(storedIsDarkTheme));
+      }
+    };
     loadGoals().catch((error) =>
       console.error("Failed to load goals from storage", error),
+    );
+    loadIsDarkTheme().catch((error) =>
+      console.error("Failed to load isDarkTheme from storage", error),
     );
   }, []);
 
@@ -48,9 +57,18 @@ const RootLayout = () => {
       await AsyncStorage.setItem("goals", JSON.stringify(goals));
     };
     saveGoals().catch((error) =>
-      console.error("Failed to save data to storage", error),
+      console.error("Failed to save goals to storage", error),
     );
   }, [goals]);
+
+  useEffect(() => {
+    const saveIsDarkTheme = async () => {
+      await AsyncStorage.setItem("isDarkTheme", JSON.stringify(isDarkTheme));
+    };
+    saveIsDarkTheme().catch((error) =>
+      console.error("Failed to save isDarkTheme to storage", error),
+    );
+  }, [isDarkTheme]);
 
   const theme = isDarkTheme ? darkTheme : lightTheme;
 
