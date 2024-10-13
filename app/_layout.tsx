@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import { PaperProvider, ActivityIndicator } from "react-native-paper";
 import { Header } from "@/components/Header";
 import { useColorScheme } from "react-native";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ColorSchemeProvider } from "@/providers/ColorSchemeProvider";
 import { darkTheme } from "@/assets/themes/darkTheme";
 import { lightTheme } from "@/assets/themes/lightTheme";
@@ -11,6 +11,7 @@ import { useFonts } from "expo-font";
 import { Container } from "@/components/Container";
 import { GoalsProvider } from "@/providers/GoalsProvider";
 import { type Goals } from "@/data/goals";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
@@ -29,6 +30,27 @@ const RootLayout = () => {
   const [loaded, error] = useFonts({
     Anton: require("../assets/fonts/Anton-Regular.ttf"),
   });
+
+  useEffect(() => {
+    const loadGoals = async () => {
+      const storedGoals = await AsyncStorage.getItem("goals");
+      if (storedGoals !== null) {
+        setGoals(JSON.parse(storedGoals));
+      }
+    };
+    loadGoals().catch((error) =>
+      console.error("Failed to load goals from storage", error),
+    );
+  }, []);
+
+  useEffect(() => {
+    const saveGoals = async () => {
+      await AsyncStorage.setItem("goals", JSON.stringify(goals));
+    };
+    saveGoals().catch((error) =>
+      console.error("Failed to save data to storage", error),
+    );
+  }, [goals]);
 
   const theme = isDarkTheme ? darkTheme : lightTheme;
 
