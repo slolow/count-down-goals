@@ -72,6 +72,7 @@ export const GoalsList = () => {
             marginVertical: MARGIN_VERTICAL,
             width: Dimensions.get("window").width - 2 * MARGIN_HORIZONTAL,
           }}
+          mode={"contained"}
         >
           <Card.Title
             title={<PrimaryText>{goal.content}</PrimaryText>}
@@ -100,6 +101,7 @@ export const GoalsList = () => {
             width: Dimensions.get("window").width - 2 * MARGIN_HORIZONTAL,
             backgroundColor: theme.colors.tertiary,
           }}
+          mode={"contained"}
         >
           <Card.Title
             title={
