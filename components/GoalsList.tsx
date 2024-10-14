@@ -132,6 +132,7 @@ export const GoalsList = () => {
     <ScrollView
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
+      style={{ paddingTop: MARGIN_VERTICAL }}
     >
       <UnreachedGoalsList />
       <ReachedGoalsList />
