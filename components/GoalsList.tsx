@@ -107,6 +107,7 @@ export const GoalsList = () => {
         }}
         mode={"contained"}
         key={goal.id}
+        onPress={() => handleGoalPress(goal)}
       >
         <Card.Title
           title={
