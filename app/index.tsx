@@ -18,7 +18,7 @@ const Index = () => {
           right: -20,
         }}
       >
-        <Link href={"/SetGoal"}>
+        <Link href={"/SetGoal"} asChild>
           <IconButton source={"plus-circle-outline"} sizeMultiplier={3} />
         </Link>
       </View>
