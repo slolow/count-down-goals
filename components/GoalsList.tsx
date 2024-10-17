@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GoalsContext } from "@/providers/GoalsProvider";
 import type { Goal } from "@/data/goals";
-import { Alert, Dimensions, ScrollView } from "react-native";
+import { Alert, Dimensions, Platform, ScrollView } from "react-native";
 import { Card, useTheme } from "react-native-paper";
 import { PrimaryText } from "@/components/PrimaryText";
 import { IconButton } from "@/components/IconButton";
@@ -34,23 +34,32 @@ export const GoalsList = () => {
   };
 
   const handleDeletePress = (goal: Goal) => {
-    Alert.alert(
-      "Are you sure?",
-      "Do you really want to delete this item?",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel", // iOS specific, makes the button look bold
-        },
-        {
-          text: "Delete",
-          onPress: () => handleDelete(goal),
-          style: "destructive", // iOS specific, makes the button red
-        },
-      ],
-      { cancelable: false }, // Prevent dismissing the dialog by tapping outside
-    );
+    if (Platform.OS === "web") {
+      const confirmed = window.confirm(
+        "Do you really want to delete this item?",
+      );
+      if (confirmed) {
+        handleDelete(goal);
+      }
+    } else {
+      Alert.alert(
+        "Are you sure?",
+        "Do you really want to delete this item?",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel", // iOS specific, makes the button look bold
+          },
+          {
+            text: "Delete",
+            onPress: () => handleDelete(goal),
+            style: "destructive", // iOS specific, makes the button red
+          },
+        ],
+        { cancelable: false }, // Prevent dismissing the dialog by tapping outside
+      );
+    }
   };
 
   const handleDelete = (goalToDelete: Goal) => {
