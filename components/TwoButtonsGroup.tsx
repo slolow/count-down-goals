@@ -9,7 +9,7 @@ type TwoButtonsGroupProps = {
   linkForRightButton: Href<string | object>;
   textLeftButton: string;
   textRightButton: string;
-  lastInput?: boolean;
+  isSubmitButtonGroup?: boolean;
   rightButtonDisabled: boolean;
   onPressNext: () => void;
   onPressBack?: () => void;
@@ -20,7 +20,7 @@ export const TwoButtonsGroup = ({
   linkForRightButton,
   textLeftButton,
   textRightButton,
-  lastInput = false,
+  isSubmitButtonGroup = false,
   rightButtonDisabled,
   onPressNext,
   onPressBack,
@@ -48,7 +48,7 @@ export const TwoButtonsGroup = ({
         link={linkForRightButton}
         mode={"contained"}
         style={{
-          backgroundColor: lastInput
+          backgroundColor: isSubmitButtonGroup
             ? theme.colors.tertiary
             : theme.colors.secondary,
         }}

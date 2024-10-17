@@ -42,7 +42,7 @@ const SetDays = () => {
           linkForRightButton={"/"}
           textLeftButton={"back"}
           textRightButton={"start"}
-          lastInput={true}
+          isSubmitButtonGroup={true}
           rightButtonDisabled={isStartButtonDisabled}
           onPressNext={onPressStart}
         />
