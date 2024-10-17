@@ -33,7 +33,7 @@ export const LinkButton = ({
   const buttonWidth = windowWidth / 2 - MARGIN_HORIZONTAL_BETWEEN_BUTTONS - 5;
 
   return (
-    <Link href={link} disabled={disabled} onPress={onPress}>
+    <Link href={link} disabled={disabled} onPress={onPress} asChild>
       <Button
         mode={mode}
         style={{
