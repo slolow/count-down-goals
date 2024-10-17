@@ -10,7 +10,7 @@ import { getTodaysTimeStamp } from "@/dates/dates";
 const SetGoal = () => {
   const { goals, setGoals } = useContext(GoalsContext)!;
   const pendingGoal = goals.find((goal: Goal) => goal.status === "pending");
-  const [text, setText] = useState(pendingGoal ? pendingGoal.content : "");
+  const [text, setText] = useState("");
   const isNextButtonDisabled = text.trimEnd().length < 3;
 
   const handlePressNext = () => {
