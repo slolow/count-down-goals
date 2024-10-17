@@ -48,7 +48,6 @@ export const LinkButton = ({
           padding: 8,
         }}
         uppercase={true}
-        disabled={disabled}
       >
         {text}
       </Button>
