@@ -2,6 +2,10 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Deployed on [netlify](https://count-down-goals.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f943bd3f-1dd5-4e6c-85fa-62b865e823a6/deploy-status)](https://app.netlify.com/sites/count-down-goals/deploys)
+
 ## Get started
 
 1. Install dependencies
