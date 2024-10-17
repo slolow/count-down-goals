@@ -8,22 +8,37 @@ import { Goal } from "@/data/goals";
 import { getTodaysTimeStamp } from "@/dates/dates";
 
 const SetGoal = () => {
-  const [text, setText] = useState("");
-  const isNextButtonDisabled = text.trimEnd().length < 3;
   const { goals, setGoals } = useContext(GoalsContext)!;
+  const pendingGoal = goals.find((goal: Goal) => goal.status === "pending");
+  const [text, setText] = useState(pendingGoal ? pendingGoal.content : "");
+  const isNextButtonDisabled = text.trimEnd().length < 3;
 
   const handlePressNext = () => {
-    const goal: Goal = {
-      id: uuidv4(),
-      content: text.trimEnd(),
-      days: 0,
-      status: "pending",
-      selected: false,
-      createdAt: getTodaysTimeStamp(),
-      remainingDays: 0,
-      reached: false,
-    };
-    setGoals([goal, ...goals]);
+    if (!pendingGoal) {
+      const goal: Goal = {
+        id: uuidv4(),
+        content: text.trimEnd(),
+        days: 0,
+        status: "pending",
+        selected: false,
+        createdAt: getTodaysTimeStamp(),
+        remainingDays: 0,
+        reached: false,
+      };
+      setGoals([goal, ...goals]);
+    } else {
+      const updatedGoals = goals.map((goal: Goal) => {
+        if (goal.id === pendingGoal.id) {
+          return {
+            ...goal,
+            content: text.trimEnd(),
+          };
+        } else {
+          return goal;
+        }
+      });
+      setGoals(updatedGoals);
+    }
   };
 
   const handlePressCancel = () => {
