@@ -10,6 +10,12 @@ const SetDays = () => {
   const isStartButtonDisabled = days === "";
   const { goals, setGoals } = useContext(GoalsContext)!;
 
+  const handleChangeText = (daysInput: string) => {
+    if (!Number.isNaN(Number(daysInput))) {
+      setDays(daysInput);
+    }
+  };
+
   const onPressStart = () => {
     const updatedGoals = goals.map((goal: Goal) => {
       if (goal.status === "pending") {
@@ -32,7 +38,7 @@ const SetDays = () => {
         <TextInput
           label={"days"}
           value={days}
-          onChangeText={(days) => setDays(days)}
+          onChangeText={handleChangeText}
           inputMode={"numeric"}
         />
       </Container>
