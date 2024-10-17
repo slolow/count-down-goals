@@ -7,7 +7,7 @@ import { type Goal } from "@/data/goals";
 
 const SetDays = () => {
   const [days, setDays] = useState("");
-  const isStartButtonDisabled = days === "";
+  const isStartButtonDisabled = days.trimEnd() === "";
   const { goals, setGoals } = useContext(GoalsContext)!;
 
   const handleChangeText = (daysInput: string) => {
