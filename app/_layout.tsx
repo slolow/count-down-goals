@@ -12,12 +12,14 @@ import { Container } from "@/components/Container";
 import { GoalsProvider } from "@/providers/GoalsProvider";
 import { type Goals } from "@/data/goals";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import SignIn from "@/app/SignIn";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(
     systemColorScheme === "dark",
   );
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   const [goals, setGoals] = useState<Goals>([]);
   const colorSchemeContext = useMemo(
     () => ({
@@ -32,34 +34,34 @@ const RootLayout = () => {
   });
 
   useEffect(() => {
-    const loadGoals = async () => {
-      const storedGoals = await AsyncStorage.getItem("goals");
-      if (storedGoals !== null) {
-        setGoals(JSON.parse(storedGoals));
-      }
-    };
     const loadIsDarkTheme = async () => {
       const storedIsDarkTheme = await AsyncStorage.getItem("isDarkTheme");
       if (storedIsDarkTheme !== null) {
         setIsDarkTheme(JSON.parse(storedIsDarkTheme));
       }
     };
-    loadGoals().catch((error) =>
-      console.error("Failed to load goals from storage", error),
-    );
+    const loadAccessToken = async () => {
+      const storedAccessToken = await AsyncStorage.getItem("accessToken");
+      if (storedAccessToken !== null) {
+        setAccessToken(JSON.parse(storedAccessToken));
+      }
+    };
+    const loadGoals = async () => {
+      const storedGoals = await AsyncStorage.getItem("goals");
+      if (storedGoals !== null) {
+        setGoals(JSON.parse(storedGoals));
+      }
+    };
     loadIsDarkTheme().catch((error) =>
       console.error("Failed to load isDarkTheme from storage", error),
     );
-  }, []);
-
-  useEffect(() => {
-    const saveGoals = async () => {
-      await AsyncStorage.setItem("goals", JSON.stringify(goals));
-    };
-    saveGoals().catch((error) =>
-      console.error("Failed to save goals to storage", error),
+    loadAccessToken().catch((error) =>
+      console.error("Failed to load accessToken from storage", error),
     );
-  }, [goals]);
+    loadGoals().catch((error) =>
+      console.error("Failed to load goals from storage", error),
+    );
+  }, []);
 
   useEffect(() => {
     const saveIsDarkTheme = async () => {
@@ -70,11 +72,34 @@ const RootLayout = () => {
     );
   }, [isDarkTheme]);
 
+  useEffect(() => {
+    const saveAccessToken = async () => {
+      await AsyncStorage.setItem("accessToken", JSON.stringify(accessToken));
+    };
+    saveAccessToken().catch((error) =>
+      console.error("Failed to save accessToken to storage", error),
+    );
+  }, [accessToken]);
+
+  useEffect(() => {
+    const saveGoals = async () => {
+      await AsyncStorage.setItem("goals", JSON.stringify(goals));
+    };
+    saveGoals().catch((error) =>
+      console.error("Failed to save goals to storage", error),
+    );
+  }, [goals]);
+
   const theme = isDarkTheme ? darkTheme : lightTheme;
 
   if (!loaded && !error) {
     return (
-      <Container style={{ backgroundColor: theme.colors.background }}>
+      <Container
+        style={{
+          marginHorizontal: 0,
+          backgroundColor: theme.colors.background,
+        }}
+      >
         <ActivityIndicator animating={true} color={theme.colors.primary} />
       </Container>
     );
@@ -93,17 +118,30 @@ const RootLayout = () => {
         }}
       >
         <PaperProvider theme={theme}>
-          <Stack
-            screenOptions={{
-              header: () => <Header />,
-              contentStyle: { backgroundColor: theme.colors.background },
-            }}
-          >
-            <Stack.Screen name="index" />
-            <Stack.Screen name="SetGoal" />
-            <Stack.Screen name="SetDays" />
-            <Stack.Screen name="GoalDetail" />
-          </Stack>
+          {accessToken ? (
+            <Stack
+              screenOptions={{
+                header: () => <Header />,
+                contentStyle: { backgroundColor: theme.colors.background },
+              }}
+            >
+              <Stack.Screen name="index" />
+              <Stack.Screen name="SetGoal" />
+              <Stack.Screen name="SetDays" />
+              <Stack.Screen name="GoalDetail" />
+              <Stack.Screen name="SignIn" />
+            </Stack>
+          ) : (
+            <Container
+              mode={"centered"}
+              style={{
+                marginHorizontal: 0,
+                backgroundColor: theme.colors.background,
+              }}
+            >
+              <SignIn />
+            </Container>
+          )}
         </PaperProvider>
       </GoalsProvider>
     </ColorSchemeProvider>

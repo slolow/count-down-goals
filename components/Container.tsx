@@ -16,12 +16,12 @@ export const Container = ({
   mode = "input",
 }: ContainerProps) => {
   const styles = {
-    ...(style as object),
     flex: mode === "overview" || mode === "centered" ? 1 : undefined,
     marginVertical: mode === "overview" || mode === "centered" ? 0 : 80,
     marginHorizontal: MARGIN_HORIZONTAL,
     justifyContent: mode === "centered" ? "center" : undefined,
     alignItems: mode === "centered" ? "center" : undefined,
+    ...(style as object),
   } as ViewStyle;
 
   return <View style={styles}>{children}</View>;
