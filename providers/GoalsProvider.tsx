@@ -9,10 +9,9 @@ type GoalsProviderProps = {
   };
 };
 
-export const GoalsContext = createContext<{
-  goals: Goals;
-  setGoals: React.Dispatch<React.SetStateAction<Goals>>;
-} | null>(null);
+export const GoalsContext = createContext<GoalsProviderProps["value"] | null>(
+  null,
+);
 
 export const GoalsProvider = ({ children, value }: GoalsProviderProps) => (
   <GoalsContext.Provider value={value}>{children}</GoalsContext.Provider>
