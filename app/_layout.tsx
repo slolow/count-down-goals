@@ -13,6 +13,7 @@ import { GoalsProvider } from "@/providers/GoalsProvider";
 import { type Goals } from "@/data/goals";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SignIn from "@/app/SignIn";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 const RootLayout = () => {
   const systemColorScheme = useColorScheme();
@@ -110,41 +111,43 @@ const RootLayout = () => {
   }
 
   return (
-    <ColorSchemeProvider value={colorSchemeContext}>
-      <GoalsProvider
-        value={{
-          goals,
-          setGoals,
-        }}
-      >
-        <PaperProvider theme={theme}>
-          {accessToken ? (
-            <Stack
-              screenOptions={{
-                header: () => <Header />,
-                contentStyle: { backgroundColor: theme.colors.background },
-              }}
-            >
-              <Stack.Screen name="index" />
-              <Stack.Screen name="SetGoal" />
-              <Stack.Screen name="SetDays" />
-              <Stack.Screen name="GoalDetail" />
-              <Stack.Screen name="SignIn" />
-            </Stack>
-          ) : (
-            <Container
-              mode={"centered"}
-              style={{
-                marginHorizontal: 0,
-                backgroundColor: theme.colors.background,
-              }}
-            >
-              <SignIn />
-            </Container>
-          )}
-        </PaperProvider>
-      </GoalsProvider>
-    </ColorSchemeProvider>
+    <AuthProvider value={{ accessToken, setAccessToken }}>
+      <ColorSchemeProvider value={colorSchemeContext}>
+        <GoalsProvider
+          value={{
+            goals,
+            setGoals,
+          }}
+        >
+          <PaperProvider theme={theme}>
+            {accessToken ? (
+              <Stack
+                screenOptions={{
+                  header: () => <Header />,
+                  contentStyle: { backgroundColor: theme.colors.background },
+                }}
+              >
+                <Stack.Screen name="index" />
+                <Stack.Screen name="SetGoal" />
+                <Stack.Screen name="SetDays" />
+                <Stack.Screen name="GoalDetail" />
+                <Stack.Screen name="SignIn" />
+              </Stack>
+            ) : (
+              <Container
+                mode={"centered"}
+                style={{
+                  marginHorizontal: 0,
+                  backgroundColor: theme.colors.background,
+                }}
+              >
+                <SignIn />
+              </Container>
+            )}
+          </PaperProvider>
+        </GoalsProvider>
+      </ColorSchemeProvider>
+    </AuthProvider>
   );
 };
 
